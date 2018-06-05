@@ -5,8 +5,9 @@ public class Main {
         System.out.println("Hello World!");
 
         Model model = new Model();
+        Controller controller = new Controller();
+        View view = new View(model, controller);
 
-        View view = new View(model);
         view.setVisible(true);
 
     }

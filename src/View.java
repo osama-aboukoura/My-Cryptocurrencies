@@ -1,15 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
 
     private Model model;
+    private Controller controller;
 
-    public View(Model model) {
+    public View(Model model, Controller controller) {
 
         this.model = model;
+        this.controller = controller;
 
         setTitle("My Cryptocurrencies");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +55,7 @@ public class View extends JFrame {
         JPanel bottomPanel = new JPanel(new BorderLayout());
         bottomPanel.setBorder(new EmptyBorder(10,10,10,10));
         JButton submitButton = new JButton("Submit");
+        submitButton.addActionListener(controller);
         bottomPanel.add(submitButton, BorderLayout.EAST);
 
         add(topPanel, BorderLayout.NORTH);
