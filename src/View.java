@@ -1,10 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
 
-    public View() {
+    private Model model;
+
+    public View(Model model) {
+
+        this.model = model;
+
         setTitle("My Cryptocurrencies");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -32,11 +38,11 @@ public class View extends JFrame {
         JLabel currency1Label = new JLabel("First Cryptocurrency:");
         JLabel currency2Label = new JLabel("Second Cryptocurrency:");
         JLabel periodLabel = new JLabel("Select the Period:");
-        String[] allCurrencies = {"curreny1", "currenc2", "currency3"};
+        String[] allCurrencies = model.getListOfCryptocurrencies();
         String[] periods = {"Last 7 days", "Last 14 days", "Last 30 days"};
         JComboBox currency1ComboBox = new JComboBox(allCurrencies);
         JComboBox currency2ComboBox = new JComboBox(allCurrencies);
-        JComboBox periodComboBox = new JComboBox(allCurrencies);
+        JComboBox periodComboBox = new JComboBox(periods);
         middlePanel.add(currency1Label);
         middlePanel.add(currency1ComboBox);
         middlePanel.add(currency2Label);
@@ -49,7 +55,7 @@ public class View extends JFrame {
         bottomPanel.setBorder(new EmptyBorder(10,10,10,10));
         JButton submitButton = new JButton("Submit");
         bottomPanel.add(submitButton, BorderLayout.EAST);
-        
+
         add(topPanel, BorderLayout.NORTH);
         add(middlePanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);

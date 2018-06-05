@@ -4,7 +4,11 @@ public class Main {
 
         System.out.println("Hello World!");
 
-        View view = new View();
+        Model model = new Model();
+
+        View view = new View(model);
         view.setVisible(true);
+
     }
+
 }
