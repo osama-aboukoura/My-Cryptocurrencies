@@ -1,16 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
 
     private Model model;
-    private Controller controller;
+    private JComboBox currency1ComboBox, currency2ComboBox, periodComboBox;
 
-    public View(Model model, Controller controller) {
+    public View(Model model) {
 
         this.model = model;
-        this.controller = controller;
 
         setTitle("My Cryptocurrencies");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,9 +42,11 @@ public class View extends JFrame {
         JLabel periodLabel = new JLabel("Select the Period:");
         String[] allCurrencies = model.getListOfCryptocurrencies();
         String[] periods = {"Last 7 days", "Last 14 days", "Last 30 days"};
-        JComboBox currency1ComboBox = new JComboBox(allCurrencies);
-        JComboBox currency2ComboBox = new JComboBox(allCurrencies);
-        JComboBox periodComboBox = new JComboBox(periods);
+
+        currency1ComboBox = new JComboBox(allCurrencies);
+        currency2ComboBox = new JComboBox(allCurrencies);
+        periodComboBox = new JComboBox(periods);
+
         middlePanel.add(currency1Label);
         middlePanel.add(currency1ComboBox);
         middlePanel.add(currency2Label);
@@ -55,12 +58,24 @@ public class View extends JFrame {
         JPanel bottomPanel = new JPanel(new BorderLayout());
         bottomPanel.setBorder(new EmptyBorder(10,10,10,10));
         JButton submitButton = new JButton("Submit");
+
+        Controller controller = new Controller();
         submitButton.addActionListener(controller);
         bottomPanel.add(submitButton, BorderLayout.EAST);
 
         add(topPanel, BorderLayout.NORTH);
         add(middlePanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
+    }
+
+    private class Controller implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(currency1ComboBox.getSelectedItem());
+            System.out.println(currency2ComboBox.getSelectedItem());
+            System.out.println(periodComboBox.getSelectedItem());
+        }
     }
 
 }
