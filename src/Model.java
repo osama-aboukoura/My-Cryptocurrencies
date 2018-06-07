@@ -3,9 +3,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,27 +37,43 @@ public class Model {
         return arrayToReturn;
     }
 
-    public void connect() {
+    private Connection connectToDatabase() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:database.db";
         Connection conn = null;
         try {
-            // db parameters
-            String url = "jdbc:sqlite:chinook.db";
-            // create a connection to the database
             conn = DriverManager.getConnection(url);
-
-            System.out.println("Connection to SQLite has been established.");
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-//        finally {
-//            try {
-//                if (conn != null) {
-//                    conn.close();
-//                }
-//            } catch (SQLException ex) {
-//                System.out.println(ex.getMessage());
-//            }
-//        }
+        return conn;
     }
+
+    public void createNewTable() {
+        // SQL statement for creating a new table
+        String sql = "CREATE TABLE IF NOT EXISTS currenciesTable (datestamp TEXT, currencyPrice REAL);";
+
+        try (Connection conn = this.connectToDatabase();
+             Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insert(String datestamp, double currencyPrice) {
+        String sql = "INSERT INTO currenciesTable(datestamp,currencyPrice) VALUES(?,?)";
+
+        try (Connection conn = this.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, datestamp);
+            pstmt.setDouble(2, currencyPrice);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 }
