@@ -9,9 +9,8 @@ public class Main {
 
         model.createNewTable();
 
-        model.insert("12-Apr-2010", 145.5);
-        model.insert("14-Apr-2013", 105.5);
-
+        // test
+        model.getCurrencyInfoFromWeb("bitcoin", 20180601, 20180607);
     }
 
 }
