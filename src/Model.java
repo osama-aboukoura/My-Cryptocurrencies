@@ -6,7 +6,11 @@ import org.jsoup.select.Elements;
 import java.sql.*;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Model {
 
@@ -107,11 +111,21 @@ public class Model {
             System.out.println("Error- couldn't retrieve currency data");
         }
 
-        for (int i = 0 ; i < date_price_list.size(); i++){
-            System.out.println(date_price_list.get(i));
-        }
-
         return date_price_list;
     }
 
+    public int getCurrentTimeStamp(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDate now = LocalDate.now();
+        return Integer.parseInt(formatter.format(now));
+    }
+
+    public int getStartTimeStampFrom(String numberOfDaysAgo){
+        // this regex will extract the number from a string like 'Last 14 days'
+        int days = Integer.parseInt(numberOfDaysAgo.replaceAll("[^0-9]", ""));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDate now = LocalDate.now().minusDays(days);
+        return Integer.parseInt(formatter.format(now));
+    }
 }

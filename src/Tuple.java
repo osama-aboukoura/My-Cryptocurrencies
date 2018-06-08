@@ -13,6 +13,6 @@ public class Tuple {
 
     @Override
     public String toString() {
-        return "Date: " + date + " - Price: " + price;
+        return "Date: " + date + " - Price: $" + price;
     }
 }

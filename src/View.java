@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
@@ -75,6 +76,23 @@ public class View extends JFrame {
             System.out.println(currency1ComboBox.getSelectedItem());
             System.out.println(currency2ComboBox.getSelectedItem());
             System.out.println(periodComboBox.getSelectedItem());
+
+            int dateTo = model.getCurrentTimeStamp();
+            int dateFrom = model.getStartTimeStampFrom(periodComboBox.getSelectedItem().toString());
+
+            ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb(currency1ComboBox.getSelectedItem().toString(), dateFrom, dateTo);
+            ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb(currency2ComboBox.getSelectedItem().toString(), dateFrom, dateTo);
+
+            System.out.println("currency1 prices: ");
+            for (int i = 0; i<currency1PricesList.size(); i++){
+                System.out.println(currency1PricesList.get(i));
+            }
+
+            System.out.println("currency2 prices: ");
+            for (int i = 0; i<currency2PricesList.size(); i++){
+                System.out.println(currency2PricesList.get(i));
+            }
+
         }
     }
 
