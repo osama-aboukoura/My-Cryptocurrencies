@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class Model {
@@ -110,6 +111,8 @@ public class Model {
         } catch (IOException e) {
             System.out.println("Error- couldn't retrieve currency data");
         }
+
+        Collections.reverse(date_price_list);
 
         return date_price_list;
     }
