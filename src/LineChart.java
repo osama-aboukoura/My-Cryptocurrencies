@@ -36,6 +36,7 @@ public class LineChart extends ApplicationFrame {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 0; i < currency1PricesList.size(); i++) {
             dataset.addValue(currency1PricesList.get(i).price, currency1, currency1PricesList.get(i).date);
+            dataset.addValue(currency2PricesList.get(i).price, currency2, currency2PricesList.get(i).date);
         }
 
         return dataset;
