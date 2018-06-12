@@ -1,13 +1,19 @@
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import javax.swing.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
-public class LineChart extends ApplicationFrame {
+public class LineChart extends ApplicationFrame implements WindowListener{
 
     private String currency1, currency2;
     private ArrayList<Tuple> currency1PricesList, currency2PricesList;
@@ -22,14 +28,20 @@ public class LineChart extends ApplicationFrame {
 
         JFreeChart lineChart = ChartFactory.createLineChart(
                 currency1 + " vs " + currency2,
-                "Date", "Price",
+                "Date", "Price (USD)",
                 createDataset(),
                 PlotOrientation.VERTICAL,
                 true, true, false);
 
         ChartPanel chartPanel = new ChartPanel(lineChart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 350));
+        chartPanel.setPreferredSize(new java.awt.Dimension(700, 600));
         setContentPane(chartPanel);
+
+        // get a reference to the plot for further customisation...
+        CategoryPlot plot = (CategoryPlot) lineChart.getPlot();
+        CategoryAxis domainAxis = plot.getDomainAxis();
+        domainAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_90);
+
     }
 
     private DefaultCategoryDataset createDataset() {
@@ -42,23 +54,21 @@ public class LineChart extends ApplicationFrame {
         return dataset;
     }
 
-    /**
-     * test function to be deleted
-     */
-    public static void main(String[] args) {
-
-        // testing data
-        Model model = new Model();
-        int dateTo = model.getCurrentTimeStamp();
-        int dateFrom = model.getStartTimeStampFrom("7");
-        ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb("Dash", dateFrom, dateTo);
-        ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb("Litecoin", dateFrom, dateTo);
-
-        LineChart chart = new LineChart("Dash", "Litecoin", currency1PricesList, currency2PricesList);
-
-        chart.pack();
-        chart.setVisible(true);
-
+    @Override
+    public void windowClosing(WindowEvent event) {
+        popUpMessage();
     }
+
+    public static void popUpMessage(){
+        int dialogAnswer = JOptionPane.showConfirmDialog(
+                null,
+                "Do you want to save these records?");
+        if (dialogAnswer == JOptionPane.YES_OPTION){
+            System.out.println("saving...");
+        } else {
+            System.out.println("not saved");
+        }
+    }
+
 
 }

@@ -73,25 +73,20 @@ public class View extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(currency1ComboBox.getSelectedItem());
-            System.out.println(currency2ComboBox.getSelectedItem());
-            System.out.println(periodComboBox.getSelectedItem());
 
             int dateTo = model.getCurrentTimeStamp();
             int dateFrom = model.getStartTimeStampFrom(periodComboBox.getSelectedItem().toString());
 
-            ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb(currency1ComboBox.getSelectedItem().toString(), dateFrom, dateTo);
-            ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb(currency2ComboBox.getSelectedItem().toString(), dateFrom, dateTo);
+            String currency1Name = currency1ComboBox.getSelectedItem().toString();
+            String currency2Name = currency2ComboBox.getSelectedItem().toString();
 
-            System.out.println("currency1 prices: ");
-            for (int i = 0; i<currency1PricesList.size(); i++){
-                System.out.println(currency1PricesList.get(i));
-            }
+            ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb(currency1Name, dateFrom, dateTo);
+            ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb(currency2Name, dateFrom, dateTo);
 
-            System.out.println("currency2 prices: ");
-            for (int i = 0; i<currency2PricesList.size(); i++){
-                System.out.println(currency2PricesList.get(i));
-            }
+            LineChart chart = new LineChart(currency1Name, currency2Name, currency1PricesList, currency2PricesList);
+            chart.pack();
+            chart.setVisible(true);
+
 
         }
     }
