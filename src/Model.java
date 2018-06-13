@@ -3,15 +3,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.sql.*;
-
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 
 public class Model {
 
@@ -41,44 +37,6 @@ public class Model {
             arrayToReturn[i] = currencyNames.get(i);
         }
         return arrayToReturn;
-    }
-
-    private Connection connectToDatabase() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:database.db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
-    }
-
-    public void createNewTable() {
-        // SQL statement for creating a new table
-        String sql = "CREATE TABLE IF NOT EXISTS currenciesTable (datestamp TEXT, currencyPrice REAL);";
-
-        try (Connection conn = this.connectToDatabase();
-             Statement stmt = conn.createStatement()) {
-            // create a new table
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void insert(String datestamp, double currencyPrice) {
-        String sql = "INSERT INTO currenciesTable(datestamp,currencyPrice) VALUES(?,?)";
-
-        try (Connection conn = this.connectToDatabase();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, datestamp);
-            pstmt.setDouble(2, currencyPrice);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     /**

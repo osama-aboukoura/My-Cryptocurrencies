@@ -15,8 +15,10 @@ import java.util.ArrayList;
 
 public class LineChart extends ApplicationFrame implements WindowListener{
 
-    private String currency1, currency2;
-    private ArrayList<Tuple> currency1PricesList, currency2PricesList;
+    private static String currency1, currency2;
+    private static ArrayList<Tuple> currency1PricesList, currency2PricesList;
+
+    public static Database db = new Database();
 
     public LineChart(String currency1, String currency2, ArrayList<Tuple> currency1PricesList, ArrayList<Tuple> currency2PricesList) {
         super("Cryptocurrency prices");
@@ -64,7 +66,20 @@ public class LineChart extends ApplicationFrame implements WindowListener{
                 null,
                 "Do you want to save these records?");
         if (dialogAnswer == JOptionPane.YES_OPTION){
-            System.out.println("saving...");
+
+            // create a table with the 2 currencies and storing its name
+            String tableName = db.createNewTable(currency1, currency2);
+
+            // inserting data into the newly created table
+            for (int i = 0; i < currency1PricesList.size(); i++){
+                db.insert(
+                        tableName,
+                        currency1PricesList.get(i).date,
+                        currency1PricesList.get(i).price,
+                        currency2PricesList.get(i).price
+                );
+            }
+
         } else {
             System.out.println("not saved");
         }
