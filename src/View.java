@@ -77,8 +77,8 @@ public class View extends JFrame {
             int dateTo = model.getCurrentTimeStamp();
             int dateFrom = model.getStartTimeStampFrom(periodComboBox.getSelectedItem().toString());
 
-            String currency1Name = currency1ComboBox.getSelectedItem().toString();
-            String currency2Name = currency2ComboBox.getSelectedItem().toString();
+            String currency1Name = model.prepareCurrencyName(currency1ComboBox.getSelectedItem().toString());
+            String currency2Name = model.prepareCurrencyName(currency2ComboBox.getSelectedItem().toString());
 
             ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb(currency1Name, dateFrom, dateTo);
             ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb(currency2Name, dateFrom, dateTo);
@@ -87,8 +87,6 @@ public class View extends JFrame {
             chart.pack();
             chart.setVisible(true);
 
-
         }
     }
-
 }

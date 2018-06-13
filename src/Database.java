@@ -8,7 +8,6 @@ public class Database {
      * @return
      */
     private Connection connectToDatabase() {
-        // SQLite connection string
         String url = "jdbc:sqlite:database.db";
         Connection conn = null;
         try {
@@ -22,11 +21,15 @@ public class Database {
     /**
      * Creates a new table in the database with 3 columns
      * 1st col for date, the 2nd and 3rd for prices of 2 given currencies
-     * @param currency1Name String
-     * @param currency2Name String
+     * @param currency1 String
+     * @param currency2 String
      * @return returns the name of the created table
      */
     public String createNewTable(String currency1, String currency2) {
+
+        // removing dashes as they cause errors in sql statements
+        currency1 = currency1.replaceAll("-", "");
+        currency2 = currency2.replaceAll("-", "");
 
         String tableName = currency1 + "_vs_" + currency2;
 
@@ -36,8 +39,8 @@ public class Database {
 
         try (Connection conn = this.connectToDatabase();
              Statement stmt = conn.createStatement()) {
-            // create a new table
             stmt.execute(sql);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

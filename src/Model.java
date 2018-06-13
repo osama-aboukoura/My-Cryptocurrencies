@@ -11,6 +11,10 @@ import java.util.Collections;
 
 public class Model {
 
+    /**
+     * goes through the html page of coinmarketcap.com
+     * and returns a list of 100 currency names
+     */
     public String[] getListOfCryptocurrencies() {
         ArrayList<String> currencyNames = new ArrayList<String>();
         String tableOfCurrencies_html = "https://coinmarketcap.com/";
@@ -75,12 +79,20 @@ public class Model {
         return date_price_list;
     }
 
+    /**
+     * returns an int representing today's date of the format yyyyMMdd
+     */
     public int getCurrentTimeStamp(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate now = LocalDate.now();
         return Integer.parseInt(formatter.format(now));
     }
 
+    /**
+     * returns an int representing the date of the format yyyyMMdd
+     * of a given number of days ago
+     * @param numberOfDaysAgo a String that contains a number
+     */
     public int getStartTimeStampFrom(String numberOfDaysAgo){
         // this regex will extract the number from a string like 'Last 14 days'
         int days = Integer.parseInt(numberOfDaysAgo.replaceAll("[^0-9]", ""));
@@ -88,5 +100,14 @@ public class Model {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate now = LocalDate.now().minusDays(days);
         return Integer.parseInt(formatter.format(now));
+    }
+
+    /**
+     * replaces spaces (if there are any) with dashes
+     * @param currencyName String
+     * @return the updated string with no spaces
+     */
+    public String prepareCurrencyName(String currencyName){
+        return currencyName.replaceAll(" ", "-");
     }
 }

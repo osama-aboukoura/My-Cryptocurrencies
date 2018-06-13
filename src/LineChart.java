@@ -52,7 +52,6 @@ public class LineChart extends ApplicationFrame implements WindowListener{
             dataset.addValue(currency1PricesList.get(i).price, currency1, currency1PricesList.get(i).date);
             dataset.addValue(currency2PricesList.get(i).price, currency2, currency2PricesList.get(i).date);
         }
-
         return dataset;
     }
 
@@ -65,6 +64,7 @@ public class LineChart extends ApplicationFrame implements WindowListener{
         int dialogAnswer = JOptionPane.showConfirmDialog(
                 null,
                 "Do you want to save these records?");
+
         if (dialogAnswer == JOptionPane.YES_OPTION){
 
             // create a table with the 2 currencies and storing its name
@@ -80,8 +80,6 @@ public class LineChart extends ApplicationFrame implements WindowListener{
                 );
             }
 
-        } else {
-            System.out.println("not saved");
         }
     }
 
