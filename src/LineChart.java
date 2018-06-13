@@ -79,7 +79,11 @@ public class LineChart extends ApplicationFrame implements WindowListener{
                         currency2PricesList.get(i).price
                 );
             }
-
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Data saved in database.db",
+                    "Confimation",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
