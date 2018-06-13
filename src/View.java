@@ -7,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
 
+    public static Database db = new Database();
+
     private Model model;
     private JComboBox currency1ComboBox, currency2ComboBox, periodComboBox;
 
@@ -56,13 +58,18 @@ public class View extends JFrame {
         middlePanel.add(periodComboBox);
 
         // bottom panel containing the submit button
-        JPanel bottomPanel = new JPanel(new BorderLayout());
+        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         bottomPanel.setBorder(new EmptyBorder(10,10,10,10));
         JButton submitButton = new JButton("Submit");
+        JButton viewDataButton = new JButton("View Saved Data");
+        submitButton.setName("submitButton");
+        viewDataButton.setName("viewDataButton");
 
         Controller controller = new Controller();
         submitButton.addActionListener(controller);
-        bottomPanel.add(submitButton, BorderLayout.EAST);
+        viewDataButton.addActionListener(controller);
+        bottomPanel.add(viewDataButton);
+        bottomPanel.add(submitButton);
 
         add(topPanel, BorderLayout.NORTH);
         add(middlePanel, BorderLayout.CENTER);
@@ -74,19 +81,28 @@ public class View extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            int dateTo = model.getCurrentTimeStamp();
-            int dateFrom = model.getStartTimeStampFrom(periodComboBox.getSelectedItem().toString());
+            // casting the action event into a JButton
+            JButton pressedButton = (JButton) e.getSource();
 
-            String currency1Name = model.prepareCurrencyName(currency1ComboBox.getSelectedItem().toString());
-            String currency2Name = model.prepareCurrencyName(currency2ComboBox.getSelectedItem().toString());
+            if (pressedButton.getName().equals("submitButton")) {
 
-            ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb(currency1Name, dateFrom, dateTo);
-            ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb(currency2Name, dateFrom, dateTo);
+                int dateTo = model.getCurrentTimeStamp();
+                int dateFrom = model.getStartTimeStampFrom(periodComboBox.getSelectedItem().toString());
 
-            LineChart chart = new LineChart(currency1Name, currency2Name, currency1PricesList, currency2PricesList);
-            chart.pack();
-            chart.setVisible(true);
+                String currency1Name = model.prepareCurrencyName(currency1ComboBox.getSelectedItem().toString());
+                String currency2Name = model.prepareCurrencyName(currency2ComboBox.getSelectedItem().toString());
 
+                ArrayList<Tuple> currency1PricesList = model.getCurrencyInfoFromWeb(currency1Name, dateFrom, dateTo);
+                ArrayList<Tuple> currency2PricesList = model.getCurrencyInfoFromWeb(currency2Name, dateFrom, dateTo);
+
+                LineChart chart = new LineChart(db, currency1Name, currency2Name, currency1PricesList, currency2PricesList);
+                chart.pack();
+                chart.setVisible(true);
+
+            } else {
+                // test data
+                db.selectAllRowsInTable("BitcoinCash_vs_Bitcoin");
+            }
         }
     }
 }

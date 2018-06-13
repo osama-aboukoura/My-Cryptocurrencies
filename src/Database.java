@@ -91,4 +91,29 @@ public class Database {
             System.out.println(e.getMessage());
         }
     }
+
+
+    public ResultSet selectAllRowsInTable(String tableName){
+
+        String sql = "SELECT * FROM " + tableName;
+
+        try (Connection conn = this.connectToDatabase();
+             Statement stmt  = conn.createStatement();
+             ResultSet result = stmt.executeQuery(sql)){
+
+            while (result.next()) {
+                System.out.println(
+                        result.getString(1) + " - " +
+                        result.getString(2) + " - " +
+                        result.getString(3)
+                );
+            }
+            return result;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 }

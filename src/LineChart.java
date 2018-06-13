@@ -18,11 +18,12 @@ public class LineChart extends ApplicationFrame implements WindowListener{
     private static String currency1, currency2;
     private static ArrayList<Tuple> currency1PricesList, currency2PricesList;
 
-    public static Database db = new Database();
+    private static Database db;
 
-    public LineChart(String currency1, String currency2, ArrayList<Tuple> currency1PricesList, ArrayList<Tuple> currency2PricesList) {
+    public LineChart(Database db, String currency1, String currency2, ArrayList<Tuple> currency1PricesList, ArrayList<Tuple> currency2PricesList) {
         super("Cryptocurrency prices");
 
+        this.db = db;
         this.currency1 = currency1;
         this.currency2 = currency2;
         this.currency1PricesList = currency1PricesList;
@@ -57,10 +58,10 @@ public class LineChart extends ApplicationFrame implements WindowListener{
 
     @Override
     public void windowClosing(WindowEvent event) {
-        popUpMessage();
+        saveDataPopUpQuestion();
     }
 
-    public static void popUpMessage(){
+    public static void saveDataPopUpQuestion(){
         int dialogAnswer = JOptionPane.showConfirmDialog(
                 null,
                 "Do you want to save these records?");
