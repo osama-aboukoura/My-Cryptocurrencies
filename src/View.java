@@ -100,8 +100,7 @@ public class View extends JFrame {
                 chart.setVisible(true);
 
             } else {
-                db.resetAllArrays();
-                DatabaseView databaseView = new DatabaseView(db, "BitcoinCash_vs_Bitcoin");
+                DatabaseView databaseView = new DatabaseView(db);
             }
         }
     }

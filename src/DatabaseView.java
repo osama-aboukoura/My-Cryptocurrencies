@@ -8,30 +8,47 @@ public class DatabaseView extends JFrame {
 
     private DatabaseModel db;
 
-    public DatabaseView(DatabaseModel db, String tableName) {
+    public DatabaseView(DatabaseModel db) {
         super("Database");
+        setLayout(new FlowLayout());
+        setSize(500, 300);
 
         this.db = db;
 
-        JPanel tablePanel = makeTablePanel(tableName);
+        ArrayList<String> tableNames = db.getAllTableNamesFromDatabase();
 
-        add(tablePanel);
+        JPanel allTablesPanel = new JPanel(new FlowLayout());
+
+        JScrollPane scrollFrame = new JScrollPane(allTablesPanel);
+        scrollFrame.setAutoscrolls(true);
+        scrollFrame.setSize(new Dimension(500,400));
+
+        for (int i = 0 ; i < tableNames.size(); i++){
+            JPanel tablePanel = new JPanel(new BorderLayout());
+            JScrollPane table = makeTablePanel(tableNames.get(i));
+            tablePanel.add( new JLabel(tableNames.get(i)), BorderLayout.NORTH);
+            tablePanel.add(table, BorderLayout.CENTER);
+            allTablesPanel.add(tablePanel);
+        }
+
+        add(scrollFrame);
         setVisible(true);
-
 
     }
 
-    public JPanel makeTablePanel(String tableName){
+    public JScrollPane makeTablePanel(String tableName){
 
-        db.fetchAndFillDateAndPricesArrayLists("BitcoinCash_vs_Bitcoin");
+        db.fetchAndFillDateAndPricesArrayLists(tableName);
 
         ArrayList<String> dates = db.getDates();
         ArrayList<String> currency1Prices = db.getCurrency1Prices();
         ArrayList<String> currency2Prices = db.getCurrency2Prices();
 
-        JPanel tablePanel = new JPanel(new BorderLayout());
+//        JPanel tablePanel = new JPanel(new BorderLayout());
+//        tablePanel.setSize(450, 300);
+
         JLabel tableTitle = new JLabel(tableName);
-        tablePanel.add(tableTitle, BorderLayout.NORTH);
+//        tablePanel.add(tableTitle, BorderLayout.NORTH);
 
         String currency1Name = tableName.split("_vs_")[0];
         String currency2Name = tableName.split("_vs_")[1];
@@ -45,10 +62,11 @@ public class DatabaseView extends JFrame {
 
         JTable jt = new JTable(data, column);
         JScrollPane sp = new JScrollPane(jt);
-        tablePanel.add(sp, BorderLayout.CENTER);
-        setSize(450, 400);
+        jt.setPreferredScrollableViewportSize(new Dimension(450,200));
+//        tablePanel.add(sp, BorderLayout.CENTER);
 
-        return tablePanel;
+//        return tablePanel;
 
+        return sp;
     }
 }

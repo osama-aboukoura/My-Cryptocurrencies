@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f52221af-1254-40e8-924f-12ba2f37903a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/DatabaseView.java" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" afterPath="$PROJECT_DIR$/src/DatabaseModel.java" />
-      <change beforePath="$PROJECT_DIR$/src/LineChart.java" afterPath="$PROJECT_DIR$/src/LineChart.java" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseModel.java" afterPath="$PROJECT_DIR$/src/DatabaseModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseView.java" afterPath="$PROJECT_DIR$/src/DatabaseView.java" />
       <change beforePath="$PROJECT_DIR$/src/View.java" afterPath="$PROJECT_DIR$/src/View.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="DatabaseView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DatabaseView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="117">
+              <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,44 +29,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseModel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DatabaseModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="140" column="41" lean-forward="false" selection-start-line="140" selection-start-column="41" selection-end-line="140" selection-end-column="41" />
+            <state relative-caret-position="169">
+              <caret line="101" column="25" lean-forward="false" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#connectToDatabase#0;class#DatabaseModel#0" expanded="false" />
                 <element signature="method#createNewTable#0;class#DatabaseModel#0" expanded="false" />
                 <element signature="method#insert#0;class#DatabaseModel#0" expanded="false" />
                 <element signature="method#deleteAllRecordsInTable#0;class#DatabaseModel#0" expanded="false" />
-                <element signature="method#fetchAndFillDateAndPricesArrayLists#0;class#DatabaseModel#0" expanded="false" />
-                <element signature="e#3919#3920#0" expanded="true" />
-                <element signature="e#3947#3948#0" expanded="true" />
-                <element signature="e#4069#4070#0" expanded="true" />
-                <element signature="e#4107#4108#0" expanded="true" />
-                <element signature="e#4229#4230#0" expanded="true" />
-                <element signature="e#4267#4268#0" expanded="true" />
-                <marker date="1528996952286" expanded="true" signature="1299:1325" ph="CREATE TABLE... IF" />
-                <marker date="1528996952286" expanded="true" signature="1299:1326" ph="CREATE TABLE... IF" />
-                <marker date="1528996952286" expanded="true" signature="1299:1330" ph="CREATE TABLE... IF" />
-                <marker date="1528996952286" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
-                <marker date="1528996952286" expanded="true" signature="1360:1424" ph="(datestamp T... " />
-                <marker date="1528996952286" expanded="true" signature="2286:2329" ph="INSERT INTO currenciesTable... " />
-                <marker date="1528996952286" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
-                <marker date="1528996952286" expanded="true" signature="3306:3319" ph="SELECT id, n... " />
-                <marker date="1528996952286" expanded="true" signature="3306:3320" ph="SELECT id, n... missingValue" />
-                <marker date="1528996952286" expanded="true" signature="3306:3324" ph="SELECT * FRO... BitcoinCash_vs_Bitcoin" />
+                <element signature="e#3946#3947#0" expanded="true" />
+                <element signature="e#3974#3975#0" expanded="true" />
+                <element signature="e#4096#4097#0" expanded="true" />
+                <element signature="e#4134#4135#0" expanded="true" />
+                <element signature="e#4256#4257#0" expanded="true" />
+                <element signature="e#4294#4295#0" expanded="true" />
+                <element signature="e#4729#4737#0" expanded="true" />
+                <marker date="1529002729793" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
+                <marker date="1529002729793" expanded="true" signature="2286:2329" ph="INSERT INTO missingValue... " />
+                <marker date="1529002729793" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
+                <marker date="1529002729793" expanded="true" signature="3333:3347" ph="SELECT * FRO... missingValue" />
+                <marker date="1529002729793" expanded="true" signature="4764:4812" ph="SELECT * FRO... sqlite_master" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-843">
-              <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state relative-caret-position="177">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,9 +104,9 @@
         <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/src/LineChart.java" />
         <option value="$PROJECT_DIR$/src/Database.java" />
-        <option value="$PROJECT_DIR$/src/View.java" />
         <option value="$PROJECT_DIR$/src/DatabaseView.java" />
         <option value="$PROJECT_DIR$/src/DatabaseModel.java" />
+        <option value="$PROJECT_DIR$/src/View.java" />
       </list>
     </option>
   </component>
@@ -125,9 +118,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="426" />
-    <option name="y" value="23" />
+    <option name="y" value="159" />
     <option name="width" value="940" />
-    <option name="height" value="742" />
+    <option name="height" value="606" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -269,10 +262,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58530000" />
+    <option name="totallyTimeSpent" value="63559000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="426" y="23" width="940" height="742" extended-state="0" />
+    <frame x="426" y="159" width="940" height="606" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -284,7 +277,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2119403" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2659176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -389,23 +382,18 @@
             <element signature="method#createNewTable#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#deleteAllRecordsInTable#0;class#DatabaseModel#0" expanded="false" />
-            <element signature="method#fetchAndFillDateAndPricesArrayLists#0;class#DatabaseModel#0" expanded="false" />
-            <element signature="e#3919#3920#0" expanded="true" />
-            <element signature="e#3947#3948#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4107#4108#0" expanded="true" />
-            <element signature="e#4229#4230#0" expanded="true" />
-            <element signature="e#4267#4268#0" expanded="true" />
-            <marker date="1528996952286" expanded="true" signature="1299:1325" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1326" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1330" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1360:1424" ph="(datestamp T... " />
-            <marker date="1528996952286" expanded="true" signature="2286:2329" ph="INSERT INTO currenciesTable... " />
-            <marker date="1528996952286" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
-            <marker date="1528996952286" expanded="true" signature="3306:3319" ph="SELECT id, n... " />
-            <marker date="1528996952286" expanded="true" signature="3306:3320" ph="SELECT id, n... missingValue" />
-            <marker date="1528996952286" expanded="true" signature="3306:3324" ph="SELECT * FRO... BitcoinCash_vs_Bitcoin" />
+            <element signature="e#3946#3947#0" expanded="true" />
+            <element signature="e#3974#3975#0" expanded="true" />
+            <element signature="e#4096#4097#0" expanded="true" />
+            <element signature="e#4134#4135#0" expanded="true" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4294#4295#0" expanded="true" />
+            <element signature="e#4729#4737#0" expanded="true" />
+            <marker date="1529002729793" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
+            <marker date="1529002729793" expanded="true" signature="2286:2329" ph="INSERT INTO missingValue... " />
+            <marker date="1529002729793" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
+            <marker date="1529002729793" expanded="true" signature="3333:3347" ph="SELECT * FRO... missingValue" />
+            <marker date="1529002729793" expanded="true" signature="4764:4812" ph="SELECT * FRO... sqlite_master" />
           </folding>
         </state>
       </provider>
@@ -627,23 +615,18 @@
             <element signature="method#createNewTable#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#deleteAllRecordsInTable#0;class#DatabaseModel#0" expanded="false" />
-            <element signature="method#fetchAndFillDateAndPricesArrayLists#0;class#DatabaseModel#0" expanded="false" />
-            <element signature="e#3919#3920#0" expanded="true" />
-            <element signature="e#3947#3948#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4107#4108#0" expanded="true" />
-            <element signature="e#4229#4230#0" expanded="true" />
-            <element signature="e#4267#4268#0" expanded="true" />
-            <marker date="1528996952286" expanded="true" signature="1299:1325" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1326" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1330" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1360:1424" ph="(datestamp T... " />
-            <marker date="1528996952286" expanded="true" signature="2286:2329" ph="INSERT INTO currenciesTable... " />
-            <marker date="1528996952286" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
-            <marker date="1528996952286" expanded="true" signature="3306:3319" ph="SELECT id, n... " />
-            <marker date="1528996952286" expanded="true" signature="3306:3320" ph="SELECT id, n... missingValue" />
-            <marker date="1528996952286" expanded="true" signature="3306:3324" ph="SELECT * FRO... BitcoinCash_vs_Bitcoin" />
+            <element signature="e#3946#3947#0" expanded="true" />
+            <element signature="e#3974#3975#0" expanded="true" />
+            <element signature="e#4096#4097#0" expanded="true" />
+            <element signature="e#4134#4135#0" expanded="true" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4294#4295#0" expanded="true" />
+            <element signature="e#4729#4737#0" expanded="true" />
+            <marker date="1529002729793" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
+            <marker date="1529002729793" expanded="true" signature="2286:2329" ph="INSERT INTO missingValue... " />
+            <marker date="1529002729793" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
+            <marker date="1529002729793" expanded="true" signature="3333:3347" ph="SELECT * FRO... missingValue" />
+            <marker date="1529002729793" expanded="true" signature="4764:4812" ph="SELECT * FRO... sqlite_master" />
           </folding>
         </state>
       </provider>
@@ -832,18 +815,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DatabaseView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-843">
-          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        <state relative-caret-position="117">
+          <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -852,31 +825,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DatabaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="140" column="41" lean-forward="false" selection-start-line="140" selection-start-column="41" selection-end-line="140" selection-end-column="41" />
+        <state relative-caret-position="169">
+          <caret line="101" column="25" lean-forward="false" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#connectToDatabase#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#createNewTable#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#insert#0;class#DatabaseModel#0" expanded="false" />
             <element signature="method#deleteAllRecordsInTable#0;class#DatabaseModel#0" expanded="false" />
-            <element signature="method#fetchAndFillDateAndPricesArrayLists#0;class#DatabaseModel#0" expanded="false" />
-            <element signature="e#3919#3920#0" expanded="true" />
-            <element signature="e#3947#3948#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4107#4108#0" expanded="true" />
-            <element signature="e#4229#4230#0" expanded="true" />
-            <element signature="e#4267#4268#0" expanded="true" />
-            <marker date="1528996952286" expanded="true" signature="1299:1325" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1326" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1330" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
-            <marker date="1528996952286" expanded="true" signature="1360:1424" ph="(datestamp T... " />
-            <marker date="1528996952286" expanded="true" signature="2286:2329" ph="INSERT INTO currenciesTable... " />
-            <marker date="1528996952286" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
-            <marker date="1528996952286" expanded="true" signature="3306:3319" ph="SELECT id, n... " />
-            <marker date="1528996952286" expanded="true" signature="3306:3320" ph="SELECT id, n... missingValue" />
-            <marker date="1528996952286" expanded="true" signature="3306:3324" ph="SELECT * FRO... BitcoinCash_vs_Bitcoin" />
+            <element signature="e#3946#3947#0" expanded="true" />
+            <element signature="e#3974#3975#0" expanded="true" />
+            <element signature="e#4096#4097#0" expanded="true" />
+            <element signature="e#4134#4135#0" expanded="true" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4294#4295#0" expanded="true" />
+            <element signature="e#4729#4737#0" expanded="true" />
+            <marker date="1529002729793" expanded="true" signature="1299:1424" ph="CREATE TABLE... IF" />
+            <marker date="1529002729793" expanded="true" signature="2286:2329" ph="INSERT INTO missingValue... " />
+            <marker date="1529002729793" expanded="true" signature="2914:2926" ph="DELETE FROM missingValue... " />
+            <marker date="1529002729793" expanded="true" signature="3333:3347" ph="SELECT * FRO... missingValue" />
+            <marker date="1529002729793" expanded="true" signature="4764:4812" ph="SELECT * FRO... sqlite_master" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

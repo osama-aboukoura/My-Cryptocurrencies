@@ -99,6 +99,8 @@ public class DatabaseModel {
 
     public void fetchAndFillDateAndPricesArrayLists(String tableName){
 
+        resetAllArrays();
+
         String sql = "SELECT * FROM " + tableName;
 
         try (Connection conn = this.connectToDatabase();
@@ -144,5 +146,25 @@ public class DatabaseModel {
         dates = new ArrayList<String>();;
         currency1Prices = new ArrayList<String>();;
         currency2Prices = new ArrayList<String>();;
+    }
+
+    /**
+     * @return ArrayList<String> of database table names
+     */
+    public ArrayList<String> getAllTableNamesFromDatabase(){
+
+        ArrayList<String> tableNames = new ArrayList<String>();
+
+        String sql = "SELECT * FROM sqlite_master WHERE type = 'table'";
+        try (Connection conn = this.connectToDatabase();
+             Statement stmt  = conn.createStatement();
+             ResultSet result = stmt.executeQuery(sql)){
+            while (result.next()) {
+                tableNames.add(result.getString("name")); // returns table name
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return tableNames;
     }
 }
