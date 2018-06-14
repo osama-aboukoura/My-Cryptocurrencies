@@ -167,4 +167,16 @@ public class DatabaseModel {
         }
         return tableNames;
     }
+
+    public void dropTable(String tableName){
+        String sql_drop = "DROP TABLE IF EXISTS " + tableName + ";";
+
+        try (Connection conn = this.connectToDatabase();
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(sql_drop);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

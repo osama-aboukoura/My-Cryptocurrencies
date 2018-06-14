@@ -2,6 +2,8 @@ import org.jfree.ui.ApplicationFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DatabaseView extends JFrame {
@@ -12,24 +14,52 @@ public class DatabaseView extends JFrame {
         super("Database");
         setLayout(new FlowLayout());
         setSize(520, 450);
-        setMinimumSize(new Dimension(500, 450));
-        setMaximumSize(new Dimension(500, Integer.MAX_VALUE));
+        setMinimumSize(new Dimension(520, 450));
+        setMaximumSize(new Dimension(520, Integer.MAX_VALUE));
 
         this.db = db;
 
         ArrayList<String> tableNames = db.getAllTableNamesFromDatabase();
 
-        JPanel allTablesPanel = new JPanel(new GridLayout(tableNames.size(),1));
-        for (int i = 0 ; i < tableNames.size(); i++){
-            allTablesPanel.add(makeTablePanel(tableNames.get(i)));
+        if (tableNames.size() == 0){
+            setLayout(new BorderLayout());
+            add(new JLabel("Database is empty.", SwingConstants.CENTER));
+
+        } else {
+            JPanel allTablesPanel = new JPanel(new GridLayout(tableNames.size(),1));
+            for (int i = 0 ; i < tableNames.size(); i++){
+                allTablesPanel.add(makeTablePanel(tableNames.get(i)));
+            }
+
+            JScrollPane scrollFrame = new JScrollPane(allTablesPanel);
+            scrollFrame.setAutoscrolls(true);
+            scrollFrame.setPreferredSize(new Dimension(500,450));
+            add(scrollFrame);
         }
-
-        JScrollPane scrollFrame = new JScrollPane(allTablesPanel);
-        scrollFrame.setAutoscrolls(true);
-        scrollFrame.setPreferredSize(new Dimension(500,450));
-        add(scrollFrame);
         setVisible(true);
+    }
 
+    private class Controller implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // casting the action event into a JButton
+            JButton pressedButton = (JButton) e.getSource();
+
+            int dialogAnswer = JOptionPane.showConfirmDialog(
+                    null,
+                    "Are you sure you want to DELETE this table?");
+
+            if (dialogAnswer == JOptionPane.YES_OPTION){
+                db.dropTable(pressedButton.getName());
+                dispose();
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Table deleted successfully",
+                        "Confimation",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
 
     public JPanel makeTablePanel(String tableName){
@@ -43,8 +73,17 @@ public class DatabaseView extends JFrame {
         JPanel tablePanel = new JPanel(new BorderLayout());
         tablePanel.setSize(450, 300);
 
+        JPanel titleAndButton = new JPanel(new BorderLayout());
         JLabel tableTitle = new JLabel(tableName);
-        tablePanel.add(tableTitle, BorderLayout.NORTH);
+        titleAndButton.add(tableTitle, BorderLayout.WEST);
+        JPanel buttonPanel = new JPanel();
+        JButton deleteButton = new JButton("X");
+        deleteButton.setName(tableName);
+        Controller controller = new Controller();
+        deleteButton.addActionListener(controller);
+        buttonPanel.add(deleteButton);
+        titleAndButton.add(buttonPanel, BorderLayout.EAST);
+        tablePanel.add(titleAndButton, BorderLayout.NORTH);
 
         String currency1Name = tableName.split("_vs_")[0];
         String currency2Name = tableName.split("_vs_")[1];
