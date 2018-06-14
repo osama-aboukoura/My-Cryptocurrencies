@@ -7,7 +7,7 @@ import javax.swing.border.EmptyBorder;
 
 public class View extends JFrame {
 
-    public static Database db = new Database();
+    public static DatabaseModel db = new DatabaseModel();
 
     private Model model;
     private JComboBox currency1ComboBox, currency2ComboBox, periodComboBox;
@@ -19,7 +19,7 @@ public class View extends JFrame {
         setTitle("My Cryptocurrencies");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(430, 300));
+        setMinimumSize(new Dimension(450, 300));
         setResizable(false);
         initWidgets();
 
@@ -100,8 +100,8 @@ public class View extends JFrame {
                 chart.setVisible(true);
 
             } else {
-                // test data
-                db.selectAllRowsInTable("BitcoinCash_vs_Bitcoin");
+                db.resetAllArrays();
+                DatabaseView databaseView = new DatabaseView(db, "BitcoinCash_vs_Bitcoin");
             }
         }
     }

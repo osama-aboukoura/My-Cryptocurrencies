@@ -1,6 +1,11 @@
 import java.sql.*;
+import java.util.ArrayList;
 
-public class Database {
+public class DatabaseModel {
+
+    private ArrayList<String> dates;
+    private ArrayList<String> currency1Prices;
+    private ArrayList<String> currency2Prices;
 
     /**
      * Creates a new database if database doesn't exist,
@@ -92,8 +97,7 @@ public class Database {
         }
     }
 
-
-    public ResultSet selectAllRowsInTable(String tableName){
+    public void fetchAndFillDateAndPricesArrayLists(String tableName){
 
         String sql = "SELECT * FROM " + tableName;
 
@@ -102,18 +106,43 @@ public class Database {
              ResultSet result = stmt.executeQuery(sql)){
 
             while (result.next()) {
-                System.out.println(
-                        result.getString(1) + " - " +
-                        result.getString(2) + " - " +
-                        result.getString(3)
-                );
+                dates.add(result.getString(1));
+                currency1Prices.add(result.getString(2));
+                currency2Prices.add(result.getString(3));
             }
-            return result;
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 
+    /**
+     * @return ArrayList<String> of Dates
+     */
+    public ArrayList<String> getDates() {
+        return dates;
+    }
+
+    /**
+     * @return ArrayList<String> of currency1 prices
+     */
+    public ArrayList<String> getCurrency1Prices() {
+        return currency1Prices;
+    }
+
+    /**
+     * @return ArrayList<String> of currency2 prices
+     */
+    public ArrayList<String> getCurrency2Prices() {
+        return currency2Prices;
+    }
+
+    /**
+     * initialise dates and prices arrays
+     */
+    public void resetAllArrays(){
+        dates = new ArrayList<String>();;
+        currency1Prices = new ArrayList<String>();;
+        currency2Prices = new ArrayList<String>();;
+    }
 }

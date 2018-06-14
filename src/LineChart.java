@@ -18,9 +18,9 @@ public class LineChart extends ApplicationFrame implements WindowListener{
     private static String currency1, currency2;
     private static ArrayList<Tuple> currency1PricesList, currency2PricesList;
 
-    private static Database db;
+    private static DatabaseModel db;
 
-    public LineChart(Database db, String currency1, String currency2, ArrayList<Tuple> currency1PricesList, ArrayList<Tuple> currency2PricesList) {
+    public LineChart(DatabaseModel db, String currency1, String currency2, ArrayList<Tuple> currency1PricesList, ArrayList<Tuple> currency2PricesList) {
         super("Cryptocurrency prices");
 
         this.db = db;
