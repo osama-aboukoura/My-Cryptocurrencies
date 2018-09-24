@@ -22,3 +22,4 @@ After selecting the 2 Cryptocurrencies and the period of time, and clicking subm
 When closing the graph, you'll be promted to save the records in the database. When the records are saved, they are shown as below: 
 
 ![image](https://github.com/osama-aboukoura/My-Cryptocurrencies/blob/master/screenshot3.png)
+
